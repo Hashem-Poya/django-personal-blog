@@ -39,11 +39,23 @@
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|slice:":200" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    <img src="{{ post.image.url }}" alt="Image" width=550 class="img-fluid mx-auto d-block img-thumbnail my-3">
+                    <p class="card-text">{{post.content|slice:":300" }}</p>
+                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary float-right">Read More &rarr;</a>
                 </div>
             </div>
             {% endfor %}
+        {% if is_paginated %}
+            <ul class="pagination justify-content-center pagination-sm">
+                {% if page_obj.has_previous %}
+                <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; Previous </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a></li>
+
+                {% endif %}
+            </ul>
+        {% endif %}
         </div>
         {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     </div>
