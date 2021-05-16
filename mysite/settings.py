@@ -31,6 +31,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 # Application definition
 
 INSTALLED_APPS = [
