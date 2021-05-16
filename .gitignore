@@ -1,0 +1,6 @@
+*.pyc
+.vagrant
+.settings
+.DS_store
+.env
+*.sqlite3

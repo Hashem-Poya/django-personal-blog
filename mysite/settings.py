@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
-print('::::::', TEMPLATE_DIR)
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Application definition
 
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
