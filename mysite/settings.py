@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'crispy_forms',
-    'django_summernote'
+    'django_summernote',
+    'django.contrib.sitemaps',
 ]
 
 
