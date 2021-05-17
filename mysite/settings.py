@@ -27,12 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")
+TEMPLATE_DIR = BASE_DIR.joinpath("templates")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 # Application definition
 
@@ -44,8 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'crispy_forms'
+    'crispy_forms',
+    'django_summernote'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,6 +129,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [BASE_DIR.joinpath('static'),]
+STATIC_ROOT = BASE_DIR.joinpath('staticfiles')
+
+
+# Configuration of Media 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('media/')
+
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

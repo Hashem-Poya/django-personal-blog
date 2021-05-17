@@ -39,8 +39,7 @@
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
                     <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                    <img src="{{ post.image.url }}" alt="Image" width=550 class="img-fluid mx-auto d-block img-thumbnail my-3">
-                    <p class="card-text">{{post.content|slice:":300" }}</p>
+                    <p class="card-text">{{post.content |safe|truncatechars_html:200 }}</p>
                     <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary float-right">Read More &rarr;</a>
                 </div>
             </div>
@@ -52,7 +51,6 @@
                 {% endif %}
                 {% if page_obj.has_next %}
                 <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> Next &raquo;</a></li>
-
                 {% endif %}
             </ul>
         {% endif %}
